@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C46F6D8317B41DC2000369C2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C46F6D8217B41DC2000369C2 /* main.cpp */; };
+		C46F6D8317B41DC2000369C2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C46F6D8217B41DC2000369C2 /* main.cpp */; settings = {COMPILER_FLAGS = "-objc-arc -framework AppKit -framework Cocoa -x objective-c "; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B1572D4F24CA44BF006008CA /* testframework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = testframework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46F6D7617B41D6E000369C2 /* testapp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = testapp; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46F6D8217B41DC2000369C2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -38,11 +39,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1572D4E24CA44BF006008CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1572D4F24CA44BF006008CA /* testframework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C46F6D6D17B41D6E000369C2 = {
 			isa = PBXGroup;
 			children = (
 				C46F6D7817B41D6E000369C2 /* Source */,
 				C46F6D7717B41D6E000369C2 /* Products */,
+				B1572D4E24CA44BF006008CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +107,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = C46F6D6D17B41D6E000369C2;
@@ -182,7 +193,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_CPP_STATIC_DESTRUCTORS = NO;
+				OTHER_LDFLAGS = (
+					"-framework",
+					AppKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "$(PROJECT_DIR)/build";
 			};
 			name = Debug;
 		};
@@ -190,7 +207,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_CPP_STATIC_DESTRUCTORS = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-framework",
+					AppKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = "$(PROJECT_DIR)/build";
 			};
 			name = Release;
 		};

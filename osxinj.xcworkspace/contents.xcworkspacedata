@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:testframework/testframework.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:osxinj/osxinj.xcodeproj">
    </FileRef>
    <FileRef
@@ -13,4 +16,10 @@
    <FileRef
       location = "group:testapp/testapp.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:TestIncluder/TestIncluder.xcodeproj">
+   </FileRef>     
+   <FileRef
+      location = "group:sharedlib/sharedlib.xcodeproj">
+   </FileRef>        
 </Workspace>
