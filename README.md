@@ -1,5 +1,10 @@
-osxinj
+#osxinj
 ======
+
+I have added some branches for things I attempted and some frameworks and dylibs and I was testing with
+
+
+# Original README.md
 
 Another dylib injector. Uses a bootstrapping module since `mach_inject` doesn't fully emulate library loading and crashes when loading complex modules.
 
