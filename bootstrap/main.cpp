@@ -22,6 +22,7 @@
 #define PTHREAD_SET_SELF __pthread_set_self
 #endif
 
+extern "C" int verify();
 extern "C" void PTHREAD_SET_SELF(void*);
 
 extern "C" void bootstrap(ptrdiff_t offset, void *param, size_t psize, void *dummy) DLLEXPORT;
@@ -32,6 +33,11 @@ void *loaderThread(void *patch_bundle)
     if (!bundle)
         fprintf(stderr, "Could not load patch bundle: %s\n", dlerror());
     return 0;
+}
+
+int verify() {
+    printf("bootstrap laoded\n");
+    return 42;
 }
 
 void bootstrap(ptrdiff_t offset, void *param, size_t psize, void *dummy)

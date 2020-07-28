@@ -18,6 +18,8 @@
 
 
 
+#import "CaptainHook.h"
+
 @interface ViewControllerBrad : NSViewController
 
 @property (strong) IBOutlet NSView *mainView;
@@ -120,6 +122,25 @@ NSDictionary *getClassEverything(Class objectClass) {
 
 void install(void) __attribute__((constructor));
 
+// Declare the class
+CHDeclareClass ( BBView );
+
+//Declare a method to hook.
+// Parameter 1: represents the two parameters equivalent to CHMethod2(),
+// parameter 2: is the return type, parameter 3: which class of method
+// is it,
+// parameter 4: method name,
+// parameter 5: parameter type,
+// parameter 6: parameter type name,
+// Parameter 7: method name of the second parameter 7
+// parameter 8: parameter type name
+//CHMethod1(return_type, class_type, name1, type1, arg1)
+CHMethod1(void, BBView, rightMouseDown, NSEvent *, event) {
+  NSLog(@"IN Hooked Captian Hoko method");
+//           CHSuper ( 2 , NSView , rightMouseDown, NSEvent *; // Call the original implementation
+    CHSuper1(BBView, rightMouseDown, event);
+}
+
 void install() {
   printf("INITT\n");
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -127,14 +148,14 @@ void install() {
         NSMutableArray *tree = [NSMutableArray array];
         NSApplication *app = [NSApplication sharedApplication];
 
-
       
-      KZRMETHOD_ADDING_("BBView", "NSView", "rightMouseDown:",
-       void, call_super, sel)
-      ^ (id slf, NSEvent *event){
-          call_super(slf, sel, event); //call -[NSTableCellView setObjectValue:]
-          printf("\n\n RIGHT CLICK METHOD!!!n\n\n");
-      }_WITHBLOCK_ADD;
+      // THIS WAS WORKING:
+//      KZRMETHOD_ADDING_("BBView", "NSView", "rightMouseDown:",
+//       void, call_super, sel)
+//      ^ (id slf, NSEvent *event){
+//          call_super(slf, sel, event); //call -[NSTableCellView setObjectValue:]
+//          printf("\n\n RIGHT CLICK METHOD!!!n\n\n");
+//      }_WITHBLOCK_ADD;
       
 //
 //      KZRMETHOD_ADDING_("BBView", "NSView", "mouseDown:",
