@@ -10,6 +10,7 @@
 		B11C03A124CA4C4C004F521C /* sharedlib.h in Headers */ = {isa = PBXBuildFile; fileRef = B11C03A024CA4C4C004F521C /* sharedlib.h */; };
 		B11C03A324CA4C4C004F521C /* sharedlib.m in Sources */ = {isa = PBXBuildFile; fileRef = B11C03A224CA4C4C004F521C /* sharedlib.m */; };
 		B14D635A24CA5BF30062E6F8 /* KZRMethodSwizzlingWithBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = B14D635924CA5BF30062E6F8 /* KZRMethodSwizzlingWithBlock.h */; };
+		B14D635C24CA61310062E6F8 /* CaptainHook.h in Headers */ = {isa = PBXBuildFile; fileRef = B14D635B24CA61310062E6F8 /* CaptainHook.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,7 @@
 		B11C03A024CA4C4C004F521C /* sharedlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sharedlib.h; sourceTree = "<group>"; };
 		B11C03A224CA4C4C004F521C /* sharedlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sharedlib.m; sourceTree = "<group>"; };
 		B14D635924CA5BF30062E6F8 /* KZRMethodSwizzlingWithBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZRMethodSwizzlingWithBlock.h; sourceTree = "<group>"; };
+		B14D635B24CA61310062E6F8 /* CaptainHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptainHook.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				B14D635924CA5BF30062E6F8 /* KZRMethodSwizzlingWithBlock.h */,
+				B14D635B24CA61310062E6F8 /* CaptainHook.h */,
 				B11C03A024CA4C4C004F521C /* sharedlib.h */,
 				B11C03A224CA4C4C004F521C /* sharedlib.m */,
 			);
@@ -64,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B11C03A124CA4C4C004F521C /* sharedlib.h in Headers */,
+				B14D635C24CA61310062E6F8 /* CaptainHook.h in Headers */,
 				B14D635A24CA5BF30062E6F8 /* KZRMethodSwizzlingWithBlock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

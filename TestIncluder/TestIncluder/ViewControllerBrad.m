@@ -28,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     
     CGRect someRect = CGRectMake(0.0, 0.0, 500.0, 30.0);
     self.text = [[NSTextField alloc] initWithFrame:someRect];

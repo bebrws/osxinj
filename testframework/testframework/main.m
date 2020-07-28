@@ -15,6 +15,10 @@
 #import "RTMethod.h"
 #import "RTUnregisteredClass.h"
 
+#import <objc/message.h>
+#import <objc/runtime.h>
+
+
 
 void install(void) __attribute__ ((constructor));
 
@@ -24,6 +28,8 @@ void install()
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         NSMutableArray * tree = [NSMutableArray array];
         NSApplication *app = [NSApplication sharedApplication];
+        
+        [UIAlertController alertControllerwith]
 //        do {
             for (NSWindow * window in app.windows) {
                 printf("Window title: %s\n", [window.title cString]);

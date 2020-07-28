@@ -3,6 +3,10 @@
 //   Some rights reserved: http://opensource.org/licenses/mit
 //   https://github.com/rentzsch/mach_inject
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
 #include "mach_inject.h"
 
 #include <mach-o/dyld.h>
@@ -58,12 +62,15 @@ mach_inject(
 	assert( targetProcess > 0 );
 	assert( stackSize == 0 || stackSize > 1024 );
 	
+    printf("In mach_inject with bootstrapfn AKA threadEntry: %p\n", threadEntry);
+    
+    
 	//	Find the image.
 	const void		*image;
 	unsigned long	imageSize;
 	unsigned int	jumpTableOffset;
 	unsigned int	jumpTableSize;
-	mach_error_t	err = machImageForPointer( threadEntry, &image, &imageSize, &jumpTableOffset, &jumpTableSize );
+    mach_error_t	err = machImageForPointer( threadEntry, &image, &imageSize, &jumpTableOffset, &jumpTableSize );
 	fprintf(stderr, "mach_inject: found threadEntry image at: %p with size: %lu\n", image, imageSize);
     
 	//	Initialize stackSize to default if requested.
@@ -327,7 +334,7 @@ machImageForPointer(
 				}
 				
 				munmap (fileImage, mapSize);
-				close (fd);
+				close(fd);
 			}
 #if defined(__i386__) // this segment is only available on IA-32
 			if (jumpTableOffset && jumpTableSize) {
