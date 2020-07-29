@@ -12,7 +12,9 @@
 		B11C037E24CA4AF3004F521C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B11C037D24CA4AF3004F521C /* Assets.xcassets */; };
 		B11C038124CA4AF3004F521C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B11C037F24CA4AF3004F521C /* Main.storyboard */; };
 		B11C038424CA4AF3004F521C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B11C038324CA4AF3004F521C /* main.m */; };
-		B134D98224CA50450057336C /* libsharedlib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B11C03A924CA4CAB004F521C /* libsharedlib.dylib */; };
+		B1A635A024D0EF8400BC667A /* Info2.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1A6359F24D0EF8400BC667A /* Info2.plist */; };
+		B1A635A724D0F2C700BC667A /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A635A524D0F2C700BC667A /* JRSwizzle.m */; };
+		B1A635B724D0F69C00BC667A /* JGMethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A635B524D0F69C00BC667A /* JGMethodSwizzler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,11 @@
 		B11C039224CA4BFD004F521C /* testframework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = testframework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11C03A924CA4CAB004F521C /* libsharedlib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libsharedlib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11C03AB24CA4D4C004F521C /* testframework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = testframework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1A6359F24D0EF8400BC667A /* Info2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info2.plist; sourceTree = "<group>"; };
+		B1A635A524D0F2C700BC667A /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		B1A635A624D0F2C700BC667A /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		B1A635B524D0F69C00BC667A /* JGMethodSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGMethodSwizzler.m; sourceTree = "<group>"; };
+		B1A635B624D0F69C00BC667A /* JGMethodSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGMethodSwizzler.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B134D98224CA50450057336C /* libsharedlib.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,10 @@
 		B11C037624CA4AF2004F521C /* TestIncluder */ = {
 			isa = PBXGroup;
 			children = (
+				B1A635A624D0F2C700BC667A /* JRSwizzle.h */,
+				B1A635A524D0F2C700BC667A /* JRSwizzle.m */,
+				B1A635B624D0F69C00BC667A /* JGMethodSwizzler.h */,
+				B1A635B524D0F69C00BC667A /* JGMethodSwizzler.m */,
 				B11C037724CA4AF2004F521C /* AppDelegate.h */,
 				B11C037824CA4AF2004F521C /* AppDelegate.m */,
 				B11C037A24CA4AF2004F521C /* ViewControllerBrad.h */,
@@ -70,6 +80,7 @@
 				B11C037D24CA4AF3004F521C /* Assets.xcassets */,
 				B11C037F24CA4AF3004F521C /* Main.storyboard */,
 				B11C038224CA4AF3004F521C /* Info.plist */,
+				B1A6359F24D0EF8400BC667A /* Info2.plist */,
 				B11C038324CA4AF3004F521C /* main.m */,
 				B11C038524CA4AF3004F521C /* TestIncluder.entitlements */,
 			);
@@ -143,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1A635A024D0EF8400BC667A /* Info2.plist in Resources */,
 				B11C037E24CA4AF3004F521C /* Assets.xcassets in Resources */,
 				B11C038124CA4AF3004F521C /* Main.storyboard in Resources */,
 			);
@@ -155,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1A635B724D0F69C00BC667A /* JGMethodSwizzler.m in Sources */,
 				B11C037C24CA4AF2004F521C /* ViewControllerBrad.m in Sources */,
 				B11C038424CA4AF3004F521C /* main.m in Sources */,
+				B1A635A724D0F2C700BC667A /* JRSwizzle.m in Sources */,
 				B11C037924CA4AF2004F521C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,11 @@
 //
 
 #import "ViewControllerBrad.h"
+#import <objc/runtime.h>
 
+#import "JGMethodSwizzler.h"
+
+#import <objc/objc-runtime.h>
 
 @implementation BBView
 - (void)mouseDown:(NSEvent *)event {
@@ -20,6 +24,12 @@
 @end
 
 @implementation ViewControllerBrad
+
+- (void)mouseDown:(NSEvent *)e {
+    printf("HOOOKKKOKOKED \nHOOKOE\n");
+}
+
+
 
 - (void)buttonPressed {
     printf("CLICKED\n");
@@ -43,6 +53,22 @@
     
     [self.mainView addSubview:self.text];
     [self.mainView addSubview:doSomething];
+    
+    
+    Class clazz = NSClassFromString(@"BBView");
+    
+    [clazz swizzleInstanceMethod:@selector(mouseDown:) withReplacement:JGMethodReplacementProviderBlock {
+        //return a replacement block
+        return JGMethodReplacement(void, NSObject *, NSEvent *e) {
+            printf("SWIZZLED IT\n");
+            JGOriginalImplementation(void, e);
+        };
+    }];
+//    SEL originalSelector = @selector(mouseDown:);
+//    SEL newSelector = @selector(mouseDown:);
+//    Method originalMethod = class_getInstanceMethod(bbviewClass, originalSelector);
+//    Method newMethod = class_getInstanceMethod(bbviewClass, newSelector);
+//    method_exchangeImplementations(originalMethod, newMethod);
     
     
     // Do any additional setup after loading the view.

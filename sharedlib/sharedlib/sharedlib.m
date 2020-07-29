@@ -129,12 +129,12 @@ void install() {
 
 
       
-      KZRMETHOD_ADDING_("BBView", "NSView", "rightMouseDown:",
-       void, call_super, sel)
-      ^ (id slf, NSEvent *event){
-          call_super(slf, sel, event); //call -[NSTableCellView setObjectValue:]
-          printf("\n\n RIGHT CLICK METHOD!!!n\n\n");
-      }_WITHBLOCK_ADD;
+//      KZRMETHOD_ADDING_("BBView", "NSView", "rightMouseDown:",
+//       void, call_super, sel)
+//      ^ (id slf, NSEvent *event){
+//          call_super(slf, sel, event); //call -[NSTableCellView setObjectValue:]
+//          printf("\n\n RIGHT CLICK METHOD!!!n\n\n");
+//      }_WITHBLOCK_ADD;
       
 //
 //      KZRMETHOD_ADDING_("BBView", "NSView", "mouseDown:",
@@ -143,12 +143,13 @@ void install() {
 //          call_super(slf, sel, value); //call -[NSTableCellView setObjectValue:]
 //          printf("\n\n Regular CLICK METHOD!!!n\n\n");
 //      }_WITHBLOCK_ADD;
-      KZRMETHOD_SWIZZLING_("BBView", "mouseDown:",
-          void, originalMethod, originalSelector)
-          ^ (id slf, NSEvent *event){  // SEL is not brought (id self, arg1, arg2...)
-              printf("\n\n Reg Ccick HOOK METHOD!!!n\n\n");
-              originalMethod(slf, originalSelector, event);
-      }_WITHBLOCK;
+
+      //      KZRMETHOD_SWIZZLING_("BBView", "mouseDown:",
+//          void, originalMethod, originalSelector)
+//          ^ (id slf, NSEvent *event){  // SEL is not brought (id self, arg1, arg2...)
+//              printf("\n\n Reg Ccick HOOK METHOD!!!n\n\n");
+//              originalMethod(slf, originalSelector, event);
+//      }_WITHBLOCK;
 
       
         KZRMETHOD_SWIZZLING_("ViewControllerBrad", "getString",
